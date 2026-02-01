@@ -1,0 +1,144 @@
+---
+const experiences = [
+    {
+       company: "Independent Projects / Mobile Development/ Collaborations",
+  role: "React Native Developer",
+  date: "2023 - Present",
+  description:
+    "Developing cross-platform mobile applications using React Native. Implemented authentication flows, API integrations, and responsive mobile UI. Worked with Expo and native device features.",
+    },
+    {
+        company: "Independent Projects / Freelance",
+        role: "React Developer",
+        date: "2021 - 2023",
+        description:
+            "Transitioned into modern frontend development using React. Built single-page applications, reusable components, and integrated REST APIs. Gained experience with state management and performance optimization.",
+    },
+    {
+        company: "Self-Taught / Independent Projects",
+        role: "Frontend Web Developer",
+        date: "2019 - 2021",
+        description:
+            "Started web development with HTML, CSS, and JavaScript. Built responsive websites and small web apps. Learned core frontend fundamentals, DOM manipulation, and basic Git/GitHub workflows.",
+    },
+];
+---
+
+<div class="experience-timeline">
+    {
+        experiences.map((exp, index) => (
+            <div class="timeline-item">
+                <div class="timeline-dot" />
+                <div class="timeline-content">
+                    <span class="timeline-date">{exp.date}</span>
+                    <h3 class="timeline-role">{exp.role}</h3>
+                    <h4 class="timeline-company">{exp.company}</h4>
+                    <p class="timeline-description">{exp.description}</p>
+                </div>
+            </div>
+        ))
+    }
+</div>
+
+<style>
+    .experience-timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem 0;
+    }
+
+    /* Vertical Line */
+    .experience-timeline::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 20px;
+        height: 100%;
+        width: 2px;
+        background: rgba(56, 189, 248, 0.2);
+    }
+
+    .timeline-item {
+        position: relative;
+        margin-bottom: 3rem;
+        padding-left: 60px;
+    }
+
+    .timeline-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .timeline-dot {
+        position: absolute;
+        left: 11px; /* Center on line (20px left - 9px half width) */
+        top: 0;
+        width: 20px;
+        height: 20px;
+        background: var(--bg-color);
+        border: 2px solid var(--accent-color);
+        border-radius: 50%;
+        z-index: 1;
+        transition: all 0.3s ease;
+    }
+
+    .timeline-item:hover .timeline-dot {
+        background: var(--accent-color);
+        box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+    }
+
+    .timeline-content {
+        background: rgba(30, 41, 59, 0.4);
+        border: 1px solid rgba(148, 163, 184, 0.1);
+        padding: 1.5rem;
+        border-radius: 12px;
+        transition:
+            transform 0.3s ease,
+            border-color 0.3s ease;
+    }
+
+    .timeline-item:hover .timeline-content {
+        transform: translateX(10px);
+        border-color: rgba(56, 189, 248, 0.3);
+    }
+
+    .timeline-date {
+        display: inline-block;
+        font-family: monospace;
+        font-size: 0.85rem;
+        color: var(--accent-color);
+        margin-bottom: 0.5rem;
+    }
+
+    .timeline-role {
+        font-size: 1.25rem;
+        color: var(--text-color);
+        margin: 0 0 0.25rem 0;
+    }
+
+    .timeline-company {
+        font-size: 1rem;
+        color: var(--text-muted);
+        font-weight: 500;
+        margin: 0 0 1rem 0;
+    }
+
+    .timeline-description {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin: 0;
+        line-height: 1.6;
+    }
+
+    @media (max-width: 600px) {
+        .experience-timeline::before {
+            left: 10px;
+        }
+        .timeline-item {
+            padding-left: 40px;
+        }
+        .timeline-dot {
+            left: 1px;
+        }
+    }
+</style>

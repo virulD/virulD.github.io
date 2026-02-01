@@ -1,0 +1,91 @@
+---
+import ThemeToggle from "./ThemeToggle.astro";
+
+const navItems = [
+    { name: "About", href: "#about" },
+    { name: "Projects", href: "#projects" },
+    { name: "Skills", href: "#skills" },
+    { name: "Contact", href: "#contact" },
+];
+---
+
+<header class="navbar">
+    <div class="container nav-container">
+        <a href="#" class="logo"> SysBitDigital</a>
+        <nav class="nav-links">
+            {
+                navItems.map((item) => (
+                    <a href={item.href} class="nav-link">
+                        <span class="nav-text">{item.name}</span>
+                    </a>
+                ))
+            }
+            <div class="theme-toggle-wrapper">
+                <ThemeToggle />
+            </div>
+        </nav>
+
+        <!-- Mobile Toggle (simplified for now, can be expanded) -->
+        <div class="mobile-controls">
+            <ThemeToggle />
+        </div>
+    </div>
+</header>
+
+<style>
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background: var(--navbar-bg);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border-color);
+        padding: 1rem 0;
+        transition:
+            background-color 0.3s ease,
+            border-color 0.3s ease;
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-weight: 700;
+        font-size: 1.25rem;
+        color: var(--accent-color);
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .nav-link {
+        font-size: 0.9rem;
+        color: var(--text-color);
+        position: relative;
+    }
+
+    .nav-link:hover {
+        color: var(--accent-color);
+    }
+
+    .mobile-controls {
+        display: none;
+    }
+
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+        }
+        .mobile-controls {
+            display: block;
+        }
+    }
+</style>

@@ -1,0 +1,174 @@
+---
+interface Props {
+    title: string;
+    description: string;
+    tags: string[];
+    link?: string;
+}
+
+const { title, description, tags, link } = Astro.props;
+---
+
+<div class="project-card">
+    <div class="card-content">
+        <div class="card-header">
+            <div class="folder-icon">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather-folder"
+                    ><path
+                        d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"
+                    ></path></svg
+                >
+            </div>
+            <div class="links">
+                {
+                    link && (
+                        <a
+                            href={link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="External Link"
+                            class="external-link"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="22"
+                                height="22"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <>
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                    <polyline points="15 3 21 3 21 9" />
+                                    <line x1="10" y1="14" x2="21" y2="3" />
+                                </>
+                            </svg>
+                        </a>
+                    )
+                }
+            </div>
+        </div>
+
+        <h3 class="project-title">
+            <a href={link || "#"} target="_blank" rel="noopener noreferrer"
+                >{title}</a
+            >
+        </h3>
+
+        <div class="project-description">
+            <p>{description}</p>
+        </div>
+
+        <div class="project-tags">
+            {tags.map((tag) => <span class="tag">{tag}</span>)}
+        </div>
+    </div>
+</div>
+
+<style>
+    .project-card {
+        background-color: var(--card-bg);
+        border-radius: 12px;
+        height: 100%;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        position: relative;
+        overflow: hidden;
+        /* Glassy/Border effect */
+        border: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .project-card:hover {
+        transform: translateY(-7px);
+        border-color: rgba(56, 189, 248, 0.3);
+        box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.5);
+    }
+
+    .card-content {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+
+    .folder-icon {
+        color: var(--accent-color);
+    }
+
+    .links a {
+        color: var(--text-muted);
+        transition: color 0.2s;
+    }
+
+    .links a:hover {
+        color: var(--accent-color);
+    }
+
+    .project-title {
+        color: var(--text-color);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+    }
+
+    .project-title a {
+        position: relative;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .project-title a::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 1px;
+        background-color: var(--accent-color);
+        transition: width 0.3s ease;
+    }
+
+    .project-title a:hover::before {
+        width: 100%;
+    }
+
+    .project-description {
+        flex-grow: 1;
+        font-size: 1rem;
+        color: var(--text-muted);
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+
+    .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        font-family: monospace;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+    }
+
+    .tag {
+        margin-right: 0.5rem;
+    }
+</style>

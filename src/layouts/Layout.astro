@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/Vad.png" />
+		<meta name="generator" content={Astro.generator} />
+		<meta
+			name="description"
+			content="Portfolio of a Software Engineering Student"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+			rel="stylesheet"
+		/>
+		<title>{Astro.props.title || "Portfolio"}</title>
+
+		<script is:inline>
+			const theme = (() => {
+				if (
+					typeof localStorage !== "undefined" &&
+					localStorage.getItem("theme")
+				) {
+					return localStorage.getItem("theme");
+				}
+				if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+					return "dark";
+				}
+				return "light";
+			})();
+
+			if (theme === "light") {
+				document.documentElement.setAttribute("data-theme", "light");
+			} else {
+				document.documentElement.setAttribute("data-theme", "dark");
+			}
+
+			window.localStorage.setItem("theme", theme);
+		</script>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<script>
+	import "../styles/global.css";
+</script>
