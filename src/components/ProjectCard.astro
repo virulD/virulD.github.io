@@ -87,13 +87,13 @@ const { title, description, tags, link } = Astro.props;
         position: relative;
         overflow: hidden;
         /* Glassy/Border effect */
-        border: 1px solid rgba(148, 163, 184, 0.1);
+        border: 1px solid var(--border-color);
     }
 
     .project-card:hover {
         transform: translateY(-7px);
-        border-color: rgba(56, 189, 248, 0.3);
-        box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.5);
+        border-color: var(--accent-color);
+        box-shadow: 0 10px 30px -10px var(--shadow-color);
     }
 
     .card-content {

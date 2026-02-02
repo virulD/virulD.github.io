@@ -1,40 +1,54 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar.astro';
-import ProjectCard from '../components/ProjectCard.astro';
-import SkillTag from '../components/SkillTag.astro';
-import Experience from '../components/Experience.astro';
-import { Image } from 'astro:assets';
-import profileImage from '../assets/profile.jpg';
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import SkillTag from "../components/SkillTag.astro";
+import Experience from "../components/Experience.astro";
+import { Image } from "astro:assets";
+import TechIcon from "../components/TechIcon.astro";
+import profileImage from "../assets/profile.jpg";
 
 const skills = [
-  "JavaScript (ES6+)", "TypeScript", "React", "Node.js", "Python", "Java", "SQL", "Git", "Astro", "Docker"
+  "JavaScript (ES6+)",
+  "TypeScript",
+  "React",
+  "Node.js",
+  "Python",
+  "Java",
+  "SQL",
+  "Git",
+  "Astro",
+  "Docker",
 ];
 
 const projects = [
   {
     title: "My Clinic",
-    description: "A mobile application to book doctor appointments. Built with React Native and Node.js.",
+    description:
+      "A mobile application to book doctor appointments. Built with React Native and Node.js.",
     tags: ["React Native", "Node.js", "MongoDB"],
-    link: "#"
+    link: "#",
   },
   {
     title: "Event Planners LK",
-    description: "A web application to book events & organize events in Sri Lanka. Built with Next.js and Nest.js.",
+    description:
+      "A web application to book events & organize events in Sri Lanka. Built with Next.js and Nest.js.",
     tags: ["Next.js", "Nest.js", "MongoDB"],
-    link: "#"
+    link: "#",
   },
   {
     title: "Boarding Register",
-    description: "A Mobile application to register boardings insri lanka & Maintain boarding members details. Built with React Native and Node.js.",
+    description:
+      "A Mobile application to register boardings insri lanka & Maintain boarding members details. Built with React Native and Node.js.",
     tags: ["React Native", "Node.js", "MongoDB"],
-    link: "#"
-  }
+    link: "#",
+  },
 ];
 
 const techStack = [
   { name: "React", icon: "react" },
-  { name: "React Native", icon: "reactnative" },  { name: "Next.js", icon: "next" },
+  { name: "React Native", icon: "reactnative" },
+  { name: "Next.js", icon: "next" },
   { name: "Node.js", icon: "node" },
   { name: "MongoDB", icon: "mongo" },
   { name: "Express", icon: "express" },
@@ -45,12 +59,11 @@ const techStack = [
 
 <Layout title="Virul De Silva - Portfolio">
   <Navbar />
-  
+
   <main>
     <!-- Hero -->
     <section id="home" class="hero-wrapper">
       <div class="container hero-container">
-        
         <!-- Left Content -->
         <div class="hero-content">
           <div class="badge-wrapper">
@@ -65,34 +78,84 @@ const techStack = [
           </h1>
 
           <p class="hero-description">
-            I'm a Full-Stack Developer from Sri Lanka with years of experience in building scalable web/mobile applications. I turn complex problems into beautiful, functional interfaces.
+            I'm a Full-Stack Developer from Sri Lanka with years of experience
+            in building scalable web/mobile applications. I turn complex
+            problems into beautiful, functional interfaces.
           </p>
 
           <div class="hero-actions">
             <a href="#contact" class="btn btn-primary">
-              Contact Me 
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              Contact Me
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><line x1="5" y1="12" x2="19" y2="12"></line><polyline
+                  points="12 5 19 12 12 19"></polyline></svg
+              >
             </a>
-            
+
             <div class="social-links">
-               <a href="https://www.linkedin.com/in/virul-akbo-de-silva-64a693255" aria-label="LinkedIn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-               </a>
-               <a href="https://github.com/virulD" aria-label="GitHub">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-               </a>
+              <a
+                href="https://www.linkedin.com/in/virul-akbo-de-silva-64a693255"
+                aria-label="LinkedIn"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  ><path
+                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                  ></path><rect x="2" y="9" width="4" height="12"></rect><circle
+                    cx="4"
+                    cy="4"
+                    r="2"></circle></svg
+                >
+              </a>
+              <a href="https://github.com/virulD" aria-label="GitHub">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  ><path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                  ></path></svg
+                >
+              </a>
             </div>
           </div>
 
           <div class="tech-stack-section">
             <span class="tech-label">TECH STACK</span>
             <div class="tech-grid">
-              {techStack.map(tech => (
-                <div class="tech-pill">
-                  <span class="tech-icon">⚡</span> <!-- Placeholder icon -->
-                  {tech.name}
-                </div>
-              ))}
+              {
+                techStack.map((tech) => (
+                  <div class="tech-pill">
+                    <span class="tech-icon">
+                      <TechIcon icon={tech.icon} />
+                    </span>
+                    {tech.name}
+                  </div>
+                ))
+              }
             </div>
           </div>
         </div>
@@ -100,12 +163,28 @@ const techStack = [
         <!-- Right Content (Image) -->
         <div class="hero-image-wrapper">
           <div class="image-container">
-            <Image src={profileImage} alt="Virul De Silva" class="profile-img" />
-            
+            <Image
+              src={profileImage}
+              alt="Virul De Silva"
+              class="profile-img"
+            />
+
             <!-- Floating Card -->
             <div class="floating-card">
               <div class="code-icon-circle">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  ><polyline points="16 18 22 12 16 6"></polyline><polyline
+                    points="8 6 2 12 8 18"></polyline></svg
+                >
               </div>
               <div>
                 <span class="expert-label">Expertise</span>
@@ -114,7 +193,6 @@ const techStack = [
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -131,14 +209,16 @@ const techStack = [
       <div class="container">
         <h2 class="section-title">03. Featured Projects</h2>
         <div class="projects-grid">
-          {projects.map(project => (
-            <ProjectCard 
-              title={project.title} 
-              description={project.description} 
-              tags={project.tags} 
-              link={project.link}
-            />
-          ))}
+          {
+            projects.map((project) => (
+              <ProjectCard
+                title={project.title}
+                description={project.description}
+                tags={project.tags}
+                link={project.link}
+              />
+            ))
+          }
         </div>
       </div>
     </section>
@@ -148,7 +228,7 @@ const techStack = [
       <div class="container">
         <h2 class="section-title">04. Technical Expertise</h2>
         <div class="skills-wrapper">
-          {skills.map(skill => <SkillTag name={skill} />)}
+          {skills.map((skill) => <SkillTag name={skill} />)}
         </div>
       </div>
     </section>
@@ -158,9 +238,14 @@ const techStack = [
       <div class="container contact-container">
         <h2 class="contact-title">Get In Touch</h2>
         <p class="contact-desc">
-          Although I'm not currently looking for any new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+          Although I'm not currently looking for any new opportunities, my inbox
+          is always open. Whether you have a question or just want to say hi,
+          I'll try my best to get back to you!
         </p>
-        <a href="mailto:waviruldesilva@gmail.com" class="btn btn-primary big-btn">Say Hello</a>
+        <a
+          href="mailto:waviruldesilva@gmail.com"
+          class="btn btn-primary big-btn">Say Hello</a
+        >
       </div>
     </section>
 
@@ -185,7 +270,11 @@ const techStack = [
     align-items: center;
     position: relative;
     padding-top: 80px; /* Navbar height offset */
-    background: radial-gradient(circle at 80% 20%, rgba(29, 78, 216, 0.15), transparent 40%);
+    background: radial-gradient(
+      circle at 80% 20%,
+      var(--glass-border),
+      transparent 40%
+    );
   }
 
   .hero-container {
@@ -200,6 +289,7 @@ const techStack = [
     font-size: clamp(3rem, 5vw, 4.5rem);
     line-height: 1.1;
     margin-bottom: 1.5rem;
+    color: var(--heading-color);
   }
 
   .badge-wrapper {
@@ -207,8 +297,8 @@ const techStack = [
   }
 
   .badge {
-    background: rgba(30, 41, 59, 0.8);
-    border: 1px solid rgba(56, 189, 248, 0.3);
+    background: var(--badge-bg);
+    border: 1px solid var(--glass-border);
     color: var(--accent-color);
     padding: 0.5rem 1rem;
     border-radius: 9999px;
@@ -219,13 +309,16 @@ const techStack = [
     gap: 0.5rem;
   }
 
-  .star { color: #facc15; }
+  .star {
+    color: #facc15;
+  }
 
   .hero-description {
     font-size: 1.125rem;
     max-width: 500px;
     line-height: 1.7;
     margin-bottom: 2.5rem;
+    color: var(--text-muted);
   }
 
   .hero-actions {
@@ -246,12 +339,12 @@ const techStack = [
   }
 
   .social-links a:hover {
-    color: white;
+    color: var(--text-color);
   }
 
   /* Tech Stack */
   .tech-stack-section {
-    border-top: 1px solid rgba(148, 163, 184, 0.1);
+    border-top: 1px solid var(--border-color);
     padding-top: 2rem;
   }
 
@@ -276,8 +369,8 @@ const techStack = [
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
-    background: rgba(30, 41, 59, 0.5);
-    border: 1px solid rgba(148, 163, 184, 0.1);
+    background: var(--tech-pill-bg);
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     font-size: 0.9rem;
     color: var(--text-muted);
@@ -285,8 +378,8 @@ const techStack = [
   }
 
   .tech-pill:hover {
-    background: rgba(56, 189, 248, 0.1);
-    border-color: rgba(56, 189, 248, 0.3);
+    background: var(--glass-border);
+    border-color: var(--accent-color);
     color: var(--accent-color);
   }
 
@@ -314,12 +407,12 @@ const techStack = [
     right: -15px;
     bottom: 15px;
     left: 15px;
-    border: 1px solid rgba(56, 189, 248, 0.3); /* Cyan/Blue tint */
+    border: 1px solid var(--glass-border); /* Cyan/Blue tint */
     border-radius: 24px;
     z-index: -1;
     transition: transform 0.3s ease;
   }
-  
+
   /* Hover effect for the decoration */
   .image-container:hover::before {
     transform: translate(5px, -5px);
@@ -333,8 +426,9 @@ const techStack = [
     object-fit: cover;
     border-radius: 24px;
     /* Main Card Shadow/Glow */
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 
-                0 20px 50px -10px rgba(0, 0, 0, 0.5);
+    box-shadow:
+      0 0 0 1px var(--border-color),
+      0 20px 50px -10px var(--shadow-color);
     display: block;
     position: relative;
     z-index: 2;
@@ -345,15 +439,15 @@ const techStack = [
     position: absolute;
     top: 40px;
     right: -30px;
-    background: rgba(15, 23, 42, 0.9);
+    background: var(--floating-card-bg);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(56, 189, 248, 0.2);
+    border: 1px solid var(--glass-border);
     padding: 0.75rem 1.25rem;
     border-radius: 16px;
     display: flex;
     align-items: center;
     gap: 1rem;
-    box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 15px 35px -5px var(--shadow-color);
     z-index: 3;
     animation: float 6s ease-in-out infinite;
   }
@@ -379,13 +473,19 @@ const techStack = [
     display: block;
     font-size: 0.9rem;
     font-weight: 600;
-    color: white;
+    color: var(--heading-color);
   }
 
   @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
   }
 
   /* Responsive */
@@ -403,11 +503,11 @@ const techStack = [
     .hero-image-wrapper {
       order: 2;
     }
-    
+
     .hero-actions {
       justify-content: center;
     }
-    
+
     .tech-grid {
       justify-content: center;
     }
@@ -427,6 +527,6 @@ const techStack = [
   .section-title {
     font-size: 2rem;
     margin-bottom: 2rem;
-    color: white;
+    color: var(--heading-color);
   }
 </style>
